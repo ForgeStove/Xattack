@@ -6,6 +6,7 @@ import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.client.event.ClientTickEvent.Post;
 
 import java.util.*;
 public class MobAttack {
@@ -34,7 +35,7 @@ public class MobAttack {
 	public static boolean isVisible(LivingEntity entity) {
 		return mc.levelRenderer.getFrustum().isVisible(entity.getBoundingBox());
 	}
-	public static void tick() {
+	public static void tick(Post ignoredEvent) {
 		if (!KeyInput.attackEnabled) return;
 		if (mc.level == null) {
 			entityQueue.clear();
